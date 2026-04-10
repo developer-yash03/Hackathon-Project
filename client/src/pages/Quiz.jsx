@@ -70,7 +70,7 @@ const Quiz = () => {
         if (score > 3) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.put(`http://localhost:5000/api/roadmap/complete/${skillId}/${taskId}`, {}, {
+                await axios.put(`${import.meta.env.VITE_API_URL}/api/roadmap/complete/${skillId}/${taskId}`, {}, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } catch (error) {
