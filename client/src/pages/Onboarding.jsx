@@ -23,7 +23,7 @@ const Onboarding = () => {
         setGhLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const { data: res } = await axios.get(`http://localhost:5000/api/roadmap/github/${username}`, {
+            const { data: res } = await axios.get(`import.meta.env.VITE_API_URL/${username}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setGhStats(res.stats);
@@ -47,7 +47,7 @@ const Onboarding = () => {
     const handleComplete = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/api/roadmap/generate', data, {
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/roadmap/generate`, data, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             navigate('/dashboard'); 

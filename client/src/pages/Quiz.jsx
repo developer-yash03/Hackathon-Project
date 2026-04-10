@@ -29,13 +29,13 @@ const Quiz = () => {
         try {
             const token = localStorage.getItem('token');
             // Refresh questions every time to ensure they are unique
-            const { data } = await axios.get(`http://localhost:5000/api/roadmap/quiz/refresh/${skillId}/${taskId}`, {
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/roadmap/quiz/refresh/${skillId}/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setQuiz(data.quiz);
             
             // Get task title from local storage or fetch roadmap for title
-            const { data: roadmapData } = await axios.get('http://localhost:5000/api/roadmap', {
+            const { data: roadmapData } = await axios.get(`${import.meta.env.VITE_API_URL}/api/roadmap`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setTaskTitle(roadmapData.roadmap.skills[skillId].tasks[taskId].title);

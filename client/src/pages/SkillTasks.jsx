@@ -20,7 +20,7 @@ const SkillTasks = () => {
     const fetchSkillData = async () => {
         try {
             const token = localStorage.getItem('token');
-            const { data } = await axios.get('http://localhost:5000/api/roadmap', {
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/roadmap`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setSkill(data.roadmap.skills[skillId]);
