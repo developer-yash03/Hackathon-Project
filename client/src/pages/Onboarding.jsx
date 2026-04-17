@@ -23,7 +23,7 @@ const Onboarding = () => {
         setGhLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const { data: res } = await axios.get(`import.meta.env.VITE_API_URL/${username}`, {
+            const { data: res } = await axios.get(`${import.meta.env.VITE_API_URL}/${username}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setGhStats(res.stats);
