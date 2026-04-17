@@ -25,7 +25,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://hackathonproject-oqoy5lku8-developer-yash03s-projects.vercel.app"
+  ],
+  credentials: true
+}));
 
 // Mount routers
 app.use('/api/auth', require('./routes/authRoutes'));

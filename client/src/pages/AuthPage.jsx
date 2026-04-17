@@ -21,7 +21,7 @@ const AuthPage = ({ mode }) => {
     
     try {
       const endpoint = mode === 'register' ? '/api/auth/register' : '/api/auth/login';
-      const { data } = await axios.post(`${import.meta.VITE_API_URL}${endpoint}`, formData);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}${endpoint}`, formData);
       
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data));
