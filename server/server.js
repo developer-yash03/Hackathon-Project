@@ -33,8 +33,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.options("*", cors());
-
 // Mount routers
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/roadmap', require('./routes/roadmapRoutes'));
