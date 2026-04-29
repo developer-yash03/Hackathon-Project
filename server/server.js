@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://hackathonproject-nine-beryl.vercel.app/"
+    "https://hackathonproject-nine-beryl.vercel.app"
   ],
   credentials: true
 }));
